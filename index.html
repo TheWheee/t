@@ -1,0 +1,878 @@
+<head>
+  <meta charset="utf-8">
+  <title>tsimur</title>
+
+  <link rel="icon" href="/0assets/face-raspberry.png" type="image/x-icon">
+
+  <style>
+    .tele, .soundcloud {
+      float: right;
+      padding: 15px;
+    }
+  </style>
+
+  <style>
+    h1 {
+      color: #FCFCFC;
+    }
+    h3 {
+      color: #FCFCFC;
+    }
+    h2 {
+      color: #FCFCFC;
+    }
+  </style>
+
+  <style>
+    body {
+        animation: fadeInAnimation ease 10s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+  </style>
+
+  <style>
+    body { background-color: #0A0A0A; }
+  </style>
+
+  <style>
+    p {text-align: center;}
+  </style>
+
+  <style>
+    h1 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+
+  <style>
+    h3 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+
+  <style>
+    h2 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+
+  <style>
+    body > img, body > a > img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+
+  <style>
+    h1 {text-align: center;}
+  </style>
+
+  <style>
+    .title-bar {
+      background: linear-gradient(90deg, purple, orchid, pink);
+    }
+
+    :root {
+      --player-top: 10px;
+      --player-left: 10px;
+    }
+
+    .player {
+      float: left;
+      width: fit-content;
+      border: black solid 1px;
+      border-width: 1px 0px 0px 1px;
+      margin: var(--player-top) 20px 10px var(--player-left);
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    .controlimg:hover {
+      cursor: help;
+    }
+  </style>
+
+  <style>
+    @font-face {
+      font-family: "Pixelated MS Sans Serif";
+      src: url("https://files.catbox.moe/8fwbkl.woff2") format("woff2"),
+           url("https://files.catbox.moe/1za99g.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pixelated MS Sans Serif";
+      src: url("https://files.catbox.moe/moqhx6.woff2") format("woff2"),
+           url("https://files.catbox.moe/z7csle.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    .player button, .player input, .player label, .player table {
+      -webkit-font-smoothing: none;
+      font-family: "Pixelated MS Sans Serif", Arial;
+      font-size: 11px;
+    }
+
+    .player button {
+      border: none;
+      border-radius: 0;
+      box-sizing: border-box;
+      color: transparent;
+      min-height: 23px;
+      min-width: 40px;
+      padding: 0 12px;
+      text-shadow: 0 0 #222;
+      background: silver;
+      box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+    }
+
+    .player button:not(:disabled):active {
+      box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
+      text-shadow: 1px 1px #222;
+    }
+
+    .player button:focus {
+      outline: 1px dotted #000;
+      outline-offset: -4px;
+    }
+
+    .player button::-moz-focus-inner {
+      border: 0;
+    }
+
+    .player input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      background: transparent;
+    }
+
+    .player input[type="range"]:focus {
+      outline: none;
+    }
+
+    .player input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 21px;
+      width: 11px;
+      background: url("https://raw.githubusercontent.com/jdan/98.css/main/icon/indicator-horizontal.svg");
+      transform: translateY(-8px);
+      box-shadow: none;
+      border: none;
+    }
+
+    .player input[type="range"]::-moz-range-thumb {
+      background: url("https://raw.githubusercontent.com/jdan/98.css/main/icon/indicator-horizontal.svg");
+      border: 0;
+      border-radius: 0;
+      height: 21px;
+      width: 11px;
+      transform: translateY(2px);
+    }
+
+    .player input[type="range"]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 2px;
+      cursor: help;
+      box-sizing: border-box;
+      background: black;
+      border-right: 1px solid grey;
+      border-bottom: 1px solid grey;
+      box-shadow: 1px 0 0 white, 1px 1px 0 white, 0 1px 0 white, -1px 0 0 darkgrey,
+        -1px -1px 0 darkgrey, 0 -1px 0 darkgrey, -1px 1px 0 white, 1px -1px darkgrey;
+    }
+
+    .player input[type="range"]::-moz-range-track {
+      width: 100%;
+      height: 2px;
+      cursor: help;
+      box-sizing: border-box;
+      background: black;
+      border-right: 1px solid grey;
+      border-bottom: 1px solid grey;
+      box-shadow: 1px 0 0 white, 1px 1px 0 white, 0 1px 0 white, -1px 0 0 darkgrey,
+        -1px -1px 0 darkgrey, 0 -1px 0 darkgrey, -1px 1px 0 white, 1px -1px darkgrey;
+    }
+
+    .window, .title-bar {
+      font-family: "Pixelated MS Sans Serif", Arial;
+      -webkit-font-smoothing: none;
+      font-size: 11px;
+    }
+
+    .window {
+      box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px #808080, inset 2px 2px #ffffff;
+      background: #c0c0c0;
+      padding: 3px;
+      width: 260px;
+    }
+
+    .title-bar {
+      padding: 3px 2px 3px 3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title-bar-text {
+      font-weight: bold;
+      color: white;
+      letter-spacing: 0;
+      margin-right: 24px;
+    }
+
+    .title-bar-controls {
+      display: flex;
+    }
+
+    .title-bar-controls button {
+      padding: 0;
+      display: block;
+      min-width: 16px;
+      min-height: 14px;
+    }
+
+    .title-bar-controls button:active {
+      padding: 0;
+    }
+
+    .title-bar-controls button:focus {
+      outline: none;
+    }
+
+    .title-bar-controls button[aria-label=Minimize] {
+      background-image: url("https://raw.githubusercontent.com/jdan/98.css/main/icon/minimize.svg");
+      background-position: bottom 3px left 4px;
+      background-repeat: no-repeat;
+    }
+
+    .title-bar-controls button[aria-label=Maximize] {
+      background-image: url("https://raw.githubusercontent.com/jdan/98.css/4a2282dd9170cabf730fb5803d1153d86b2e94e3/icon/maximize.svg");
+      background-position: top 2px left 3px;
+      background-repeat: no-repeat;
+    }
+
+    .title-bar-controls button[aria-label=Close] {
+      background-image: url("https://raw.githubusercontent.com/jdan/98.css/main/icon/close.svg");
+      background-position: top 3px left 4px;
+      background-repeat: no-repeat;
+      margin-left: 2px;
+    }
+
+    .window-body {
+      margin: 0px;
+      height: 98px;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .titlebaricon {
+      height: 14px;
+      width: 14px;
+    }
+
+    .songtitlewindow {
+      background-color: #fff;
+      box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    }
+
+    #musicplayer {
+      border: 2px solid silver;
+      border-width: 2px 0px 0px 0px;
+      width: 160px;
+    }
+
+    #imagestyle {
+      background: silver;
+      border: 2px solid silver;
+      width: 95px;
+      height: 95px;
+      box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    }
+
+    .ic {
+      width: 90px;
+      position: relative;
+      bottom: 1px;
+      right: 1px;
+      overflow: hidden;
+      padding: 2px;
+      border: 2px solid transparent;
+    }
+
+    .songtitlearrow {
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-image: url(https://files.catbox.moe/f5e8np.png);
+      height: 21px;
+      width: 21px;
+      position: relative;
+      top: 2px;
+      left: -2px;
+      border: 0px solid transparent;
+    }
+
+    .songtitle {
+      padding: 5px;
+      border-bottom: 0px;
+      display: block;
+      font-family: "Pixelated MS Sans Serif", Arial;
+    }
+
+    .controls {
+      font-size: 18px !important;
+      text-align: center;
+      width: 100%;
+      position: relative;
+      bottom: 10px;
+    }
+
+    .controls td {
+      padding: 8px 5px 0px 5px;
+    }
+
+    .seeking {
+      background-color: #c0c0c0;
+      display: flex;
+      justify-content: space-evenly;
+      padding: 14px;
+    }
+
+    .current-time {
+      padding-right: 5px;
+    }
+
+    .total-duration {
+      padding-left: 5px;
+    }
+
+    .controlimg {
+      height: 15px;
+      width: 15px;
+    }
+  </style>
+  <style>
+    ::-webkit-scrollbar {
+      width: 15px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #000;
+      border-radius: 50px;
+      box-shadow: 0 0 10px #fff;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #333;
+    }
+  </style>
+
+  <script>
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  </script>
+</head>
+
+<body>
+  <a href="index.html"> 
+    <img src="/0assets/Me.png" width="140" height="100" alt="Main Menu"> 
+  </a>
+    
+  <a href="https://t.me"> 
+    <div class="tele">
+      <img src="/0assets/telegram.png" width="30" height="30" alt="telegram"> 
+    </div>
+  </a>
+    
+  <a href="https://soundcloud.com"> 
+    <div class="soundcloud">
+      <img src="/0assets/soundcloud.png" width="30" height="30" alt="soundcloud"> 
+    </div>
+  </a>
+
+  <br>
+  <br>
+  <br>         
+  <hr>
+
+  <div class="player">
+    <div class="window">
+      <div class="title-bar">
+        <div class="title-bar-text"><sub><img class="titlebaricon" src="https://files.catbox.moe/tg55zp.png" alt="cd player icon"></sub> CD player</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="flex">
+          <div id="imagestyle"><img class="ic" src="/0assets/hate.jpg" alt="hiya"></div>
+          <div id="musicplayer">
+            <div class="songtitlewindow">
+              <div class="flex"><marquee scrollamount="4" class="songtitle"></marquee><div class="songtitlearrow"></div></div>
+            </div>
+
+            <div class="seeking">
+              <div class="current-time">00:00</div>
+              <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+              <div class="total-duration">0:00</div>
+            </div>
+
+            <table class="controls">
+              <tr>
+                <td>
+                  <div class="prev-track" onclick="prevTrack()"><button><img src="https://files.catbox.moe/hhoh1h.png" class="controlimg"></button></div>
+                </td>
+                <td>
+                  <div class="playpause-track" onclick="playpauseTrack()"><button><img src="https://files.catbox.moe/w93riq.png" class="controlimg"></button></div>
+                </td>
+                <td>
+                  <div class="next-track" onclick="nextTrack()"><button><img src="https://files.catbox.moe/p4q9gf.png" class="controlimg"></button></div>
+                </td>
+              </tr>
+            </table>
+
+            <audio id="music" src=""></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Hi! <br> lowk never finishing this </h3>
+
+  <hr class="clear">
+
+  <br>
+
+  <br>
+
+ <!-- <img src="/0assets/ns-best.gif" width="150" height="50" alt="Netscape"> -->
+  <img src="/neocities.png" alt="Site hosted by Neocities">
+
+  <script>
+    let track_name = document.querySelector(".songtitle");
+
+    let playpause_btn = document.querySelector(".playpause-track");
+
+    let seek_slider = document.querySelector(".seek_slider");
+    let curr_time = document.querySelector(".current-time");
+    let total_duration = document.querySelector(".total-duration");
+
+    let track_index = 0;
+    let isPlaying = false;
+    let updateTimer;
+
+    let curr_track = document.getElementById("music");
+    let cover = document.querySelector(".ic");
+    let default_cover = cover.src;
+
+    let track_list = [
+      {
+        name: "KRYMZN x K *EXPLCT* - THUNDER (PROD. 4JAY)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/KRYMZN%20x%20K%20%EF%BC%8AEXPLCT%EF%BC%8A%20-%20THUNDER%20(PROD.%204JAY).mp3",
+        image: ""
+      },
+      {
+        name: "KRYMZN x K *EXPLCT* - TEST ME (PROD. 4JAY)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/KRYMZN%20X%20K%20%EF%BC%8AEXPLCT%EF%BC%8A%20-%20TEST%20ME%20(PROD.%204JAY).mp3",
+        image: ""
+      },
+      {
+        name: "KRYMZN - VEST (PROD. 4JAY)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/KRYMZN%20-%20VEST(%20PROD.%204JAY).mp3",
+        image: ""
+      },
+      {
+        name: "lungskull - i would never eat frozen pizza (scout x lux4ry)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/lungskull%20-%20i%20would%20never%20eat%20frozen%20pizza%20(scout%20x%20lux4ry).mp3",
+        image: ""
+      },
+      {
+        name: "Reptilian Club Boyz - 711",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/Reptilian%20Club%20Boyz%20-%20711%20%5B1042508032%5D.m4a",
+        image: ""
+      },
+      {
+        name: "¿diamonds? (eric)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%C2%BFdiamonds%EF%BC%9F%20(eric)%20%5B1592163415%5D.mp3",
+        image: ""
+      },
+      {
+        name: "do you desire to continue",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/do_you_desire_to_continue.wav",
+        image: ""
+      },
+      {
+        name: "xanax (lungskull)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/xanax%20(lungskull).mp3",
+        image: ""
+      },
+      {
+        name: "kaystrueno long live",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kaystrueno_long_live.wav",
+        image: ""
+      },
+      {
+        name: "##MAPLE ☆.* +kaystrueno",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%23%23MAPLE%20%E2%98%86.%EF%BC%8A%20%2Bkaystrueno%20%5B1151601100%5D.m4a",
+        image: ""
+      },
+      {
+        name: "*67 & kaystrueno - in #101 we trust (unmixxed)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%EF%BC%8A67%20%26%20kaystrueno%20-%20in%20%23101%20we%20trust%20(unmixxed)%20%5B2070519232%5D.m4a",
+        image: ""
+      },
+      {
+        name: "(dj sub) yuke x kaystrueno - dnt need her (2022)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/(dj%20sub)%20yuke%20x%20kaystrueno%20-%20dnt%20need%20her%20(2022)%20%5B2070502392%5D.m4a",
+        image: ""
+      },
+      {
+        name: "kaystrueno og issue",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kaystrueno_og_issue.wav",
+        image: ""
+      },
+      {
+        name: "i wanna go kaystrueno",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/i%20wanna%20go_kaystrueno.m4a",
+        image: ""
+      },
+      {
+        name: "kaystrueno - what u need [ft. lostrushi] [loru extended] (slowed + reverb)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kaystrueno%20-%20what%20u%20need%20%5Bft.%20lostrushi%5D%20%5Bloru%20extended%5D%20(slowed%20%2B%20reverb)%20%5B1589925495%5D.opus",
+        image: ""
+      },
+      {
+        name: "(lustmxx) kaystrueno - SKY #101 w *67",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/(lustmxx)%20kaystrueno%20-%20SKY%20%23101%20w%20%EF%BC%8A67%20%5B2072661732%5D.m4a",
+        image: ""
+      },
+      {
+        name: "kaystrueno - take yo chance",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kaystrueno%20-%20take%20yo%20chance%20%5B2126298102%5D.m4a",
+        image: ""
+      },
+      {
+        name: "#101 - *67 & kaystrueno (swif mix)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%23101%20-%20%EF%BC%8A67%20%26%20kaystrueno%20(swif%20mix)%20%5B1887900846%5D.mp3",
+        image: ""
+      },
+      {
+        name: "kaystrueno - repeat",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kaystrueno%20-%20repeat%20%5B2344983428%5D.m4a",
+        image: ""
+      },
+      {
+        name: "kaystrueno - better ; show slowed",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kaystrueno%20-%20better%20%3B%20show%20slowed%20%5B2094781416%5D.opus",
+        image: ""
+      },
+      {
+        name: "fukk dis shit bruu w/ kaystrueno",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/fukk%20dis%20shit%20bruu%20w%E2%A7%B8%20kaystrueno%20%5B2200199459%5D.m4a",
+        image: ""
+      },
+      {
+        name: "67 - kay flow 2 (yai) (unmixed)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/67%20-%20kay%20flow%202%20(yai)%20(unmixed).mp3",
+        image: ""
+      },
+      {
+        name: "67 - hit da scene (kaystrueno)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/67%20-%20hit%20da%20scene%20(kaystrueno).mp3",
+        image: ""
+      },
+      {
+        name: "kill wrath - suicide pit (ft. kaystrueno)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kill%20wrath%20-%20suicide%20pit%20(ft.%20kaystrueno)%20%5B2070507584%5D.opus",
+        image: ""
+      },
+      {
+        name: "kaystrueno - tryna smash (unmixxed)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/kaystrueno%20-%20tryna%20smash%20(unmixxed)%20%5B2070512660%5D.m4a",
+        image: ""
+      },
+      {
+        name: "67 - astral projection",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/67%20-%20astral%20projection%20.mp3",
+        image: ""
+      },
+      {
+        name: "67 - we do drugz og",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/67%20-%20we%20do%20drugz%20og.mp3",
+        image: ""
+      },
+      {
+        name: "FEEL // ABYSS",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/FEEL%20%E2%A7%B8%E2%A7%B8%20ABYSS%20%5B1686397842%5D.mp3",
+        image: ""
+      },
+      {
+        name: "cinema",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/cinema.mp3",
+        image: ""
+      },
+      {
+        name: "placement",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/placement%20%5B1508277925%5D.mp3",
+        image: ""
+      },
+      {
+        name: "bꑙꑙ⋔eℜᗑℕﻯ (ℙℜꑙ꒯. ℜᗑꎧｋ꒚EE)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/b%EA%91%99%EA%91%99%E2%8B%94e%E2%84%9C%E1%97%91%E2%84%95%EF%BB%AF%20(%E2%84%99%E2%84%9C%EA%91%99%EA%92%AF.%20%E2%84%9C%E1%97%91%EA%8E%A7%EF%BD%8B%EA%92%9AEE).mp3",
+        image: ""
+      },
+      {
+        name: "Tony Stark (prod. sadboichef x 4jay)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/Tony%20Stark%20(prod.%20sadboichef%20x%204jay).mp3",
+        image: ""
+      },
+      {
+        name: "꒳ｴℕ꒯ꑙ꒳ (ℙℜꑙ꒯. ꒚tꑙꑙℙｴ꒯꒽ꑙꑙ꒒)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%EA%92%B3%EF%BD%B4%E2%84%95%EA%92%AF%EA%91%99%EA%92%B3%20(%E2%84%99%E2%84%9C%EA%91%99%EA%92%AF.%20%EA%92%9At%EA%91%99%EA%91%99%E2%84%99%EF%BD%B4%EA%92%AF%EA%92%BD%EA%91%99%EA%91%99%EA%92%92).mp3",
+        image: ""
+      },
+      {
+        name: "+ ( ( faygo ) ) +",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%2B%20(%20(%20faygo%20)%20)%20%2B%20%5B2367289664%5D.opus",
+        image: ""
+      },
+      {
+        name: "+ ( ( vet ) ) +",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%2B%20(%20(%20vet%20)%20)%20%2B%20%5B2373293624%5D.opus",
+        image: ""
+      },
+      {
+        name: "+ ( ( zoomin ) ) +",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%2B%20(%20(%20zoomin%20)%20)%20%2B%20%5B2393811378%5D.opus",
+        image: ""
+      },
+      {
+        name: "+ ( ( cant change ) ) +",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%2B%20(%20(%20cant%20change%20)%20)%20%2B%20%5B2383792197%5D.opus",
+        image: ""
+      },
+      {
+        name: "fkcyourfavartist",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/1_fkcyourfavartist.mp3",
+        image: ""
+      },
+      {
+        name: "lost forever",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/2_lost%20forever.mp3",
+        image: ""
+      },
+      {
+        name: "i Hate Drum N Bass So Much",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/3_%20i%20Hate%20Drum%20N%20Bass%20So%20Much.mp3",
+        image: ""
+      },
+      {
+        name: "made this one in a voice call with my gf",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/4_made%20this%20one%20in%20a%20voice%20call%20with%20my%20gf.mp3",
+        image: ""
+      },
+      {
+        name: "I'm Not Sure If You're alive",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/5_I'm%20Not%20Sure%20If%20You're%20alive.mp3",
+        image: ""
+      },
+      {
+        name: "she waas bipolar",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/6_she%20waas%20bipolar.mp3",
+        image: ""
+      },
+      {
+        name: "bleed for me",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/7_bleed%20for%20me.mp3",
+        image: ""
+      },
+      {
+        name: "10 minutes outro  #waltz",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/8_10%20minutes%20outro%20%20%23waltz.mp3",
+        image: ""
+      },
+      {
+        name: "DONT B MAD",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/DONT%20B%20MAD%20%5B321670387%5D.m4a",
+        image: ""
+      },
+      {
+        name: "BLACK KRAY - 2008MYSPACEWHORE (PROD LOFTY305)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/BLACK%20KRAY%20-%202008MYSPACEWHORE%20(PROD%20LOFTY305)%20%5B2041286480%5D.mp3",
+        image: ""
+      },
+      {
+        name: "Black Kray - $TILL SWERVIN HOND4$",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/Black%20Kray%20-%20%24TILL%20SWERVIN%20HOND4%24%20%5B230876768%5D.opus",
+        image: ""
+      },
+      {
+        name: "deathroxx, im gone, kqhw - pills",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/deathroxx%2C%20im%20gone%2C%20kqhw%20-%20pills.mp3",
+        image: ""
+      },
+      {
+        name: "67 star - tryna c u #",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/67%20star%20-%20tryna%20c%20u%20%23.mp3",
+        image: ""
+      },
+      {
+        name: ">> SKWAZi << x DEDWRiTE x KiLLA V *@x6vision*",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/%3E%3E%20SKWAZi%20%3C%3C%20x%20DEDWRiTE%20x%20KiLLA%20V%20*@x6vision*%20%5B1417199977%5D.wav",
+        image: ""
+      },
+      {
+        name: "67 - #sp3llcaster pt 2",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/67%20-%20%23sp3llcaster%20pt%202%20.mp3",
+        image: ""
+      },
+      {
+        name: "yung bruh - square panda n n",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/yung%20bruh%20-%20square%20panda%20n_n%20%5B379387004%5D.m4a",
+        image: ""
+      },
+      {
+        name: "hoe (slowed) (prod. ICYTWAT)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/hoe%20(slowed)%20(prod.%20ICYTWAT).mp3",
+        image: ""
+      },
+      {
+        name: "Blueberry Soda",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/Blueberry%20Soda%20%5B1871448945%5D.mp3",
+        image: ""
+      },
+      {
+        name: "Dedwrite - Datpiff (prod. Coinstarr)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/Dedwrite%20-%20Datpiff%20(prod.%20Coinstarr)%20%5B2077058820%5D.m4a",
+        image: ""
+      },
+      {
+        name: "Dedwrite - Wayne ‘06 (prod. Coinstarr)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/Dedwrite%20-%20Wayne%20%E2%80%9806%20(prod.%20Coinstarr)%20%5B2111783076%5D.m4a",
+        image: ""
+      },
+      {
+        name: "dedwrite - ski trip (music video)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/dedwrite%20-%20ski%20trip%20(music%20video).mp4",
+        image: ""
+      },
+      {
+        name: "dedwrite - the prototype (music video)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/dedwrite%20-%20the%20prototype%20(music%20video)%20%5BmsmXVJER9Kk%5D.mp4",
+        image: ""
+      },
+      {
+        name: "dedwrite - gross (music video)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/dedwrite%20-%20gross%20(music%20video)%20%5Be1QzxWghO_0%5D.mp4",
+        image: ""
+      },
+      {
+        name: "dedwrite - faculty (music video)",
+        path: "https://file.garden/arMUwFYb6e4XlKHQ/dedwrite%20-%20faculty%20(music%20video)%20%5BmSMrgBOaETs%5D.mp4",
+        image: ""
+      }
+    ];
+
+    function loadTrack(track_index) {
+      clearInterval(updateTimer);
+      resetValues();
+
+      curr_track.src = track_list[track_index].path;
+      curr_track.load();
+
+      cover.src = track_list[track_index].image || default_cover;
+
+      track_name.textContent = "playing " + (track_index + 1) + " of " + track_list.length + ": " + track_list[track_index].name;
+
+      updateTimer = setInterval(seekUpdate, 1000);
+
+      curr_track.addEventListener("ended", nextTrack);
+    }
+
+    function resetValues() {
+      curr_time.textContent = "0:00";
+      total_duration.textContent = "0:00";
+      seek_slider.value = 0;
+    }
+
+    function playpauseTrack() {
+      if (!isPlaying) playTrack();
+      else pauseTrack();
+    }
+
+    function playTrack() {
+      curr_track.play();
+      isPlaying = true;
+      playpause_btn.innerHTML = '<button><img src="https://files.catbox.moe/njer0s.png" class="controlimg"></button>';
+    }
+
+    function pauseTrack() {
+      curr_track.pause();
+      isPlaying = false;
+      playpause_btn.innerHTML = '<button><img src="https://files.catbox.moe/w93riq.png" class="controlimg"></button>';
+    }
+
+    function nextTrack() {
+      if (track_index < track_list.length - 1) track_index += 1;
+      else track_index = 0;
+      loadTrack(track_index);
+      playTrack();
+    }
+
+    function prevTrack() {
+      if (track_index > 0) track_index -= 1;
+      else track_index = track_list.length - 1;
+      loadTrack(track_index);
+      playTrack();
+    }
+
+    function seekTo() {
+      let seekto = curr_track.duration * (seek_slider.value / 100);
+      curr_track.currentTime = seekto;
+    }
+
+    function seekUpdate() {
+      if (!isNaN(curr_track.duration)) {
+        seek_slider.value = curr_track.currentTime * (100 / curr_track.duration);
+
+        let currentMinutes = Math.floor(curr_track.currentTime / 60);
+        let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+        let durationMinutes = Math.floor(curr_track.duration / 60);
+        let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+        if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+        if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+
+        curr_time.textContent = currentMinutes + ":" + currentSeconds;
+        total_duration.textContent = durationMinutes + ":" + durationSeconds;
+      }
+    }
+
+    for (let i = track_list.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [track_list[i], track_list[j]] = [track_list[j], track_list[i]];
+    }
+
+    loadTrack(track_index);
+  </script>
+</body>
