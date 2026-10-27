@@ -23,5 +23,5 @@ The left sidebar contains links to some of my socials,  my signal, telegram, ins
 Try it out and please do give any support or questions by messaging me through the links section! :D
 
 ![|190](https://tsimur.neocities.org/neocities.png) 
-*tsimur  ![|20](https://tsimur.neocities.org/0assets/bchb.png)*
+tsimur  ![|20](https://tsimur.neocities.org/0assets/bchb.png)
 
