@@ -1,465 +1,425 @@
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>tsimur</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="icon"
-      href="https://tsimur.neocities.org/0assets/face-raspberry.png"
-      type="image/x-icon"
-    />
 
-    <!-- hi :D if youre reading wtf ts is its cos half of it was written when i was 12 and i just wanted to keep t-t-->
+<head>
+  <meta charset="utf-8" />
+  <title>tsimur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="https://tsimur.neocities.org/0assets/face-raspberry.png" type="image/x-icon" />
 
-    <!-- 
-  dont think ill use the fadein anymore lowk 
+
+
+  <script src="script.js"></script>
+  <!-- thank you https://codepen.io/massiebn/pen/OJMbXz!!! :D-->
+
+  <style>
+    :root {
+      --header-image: url("https://tsimur.neocities.org/Belarus-Minsk-Opposition_Protests_2006.03.19.jpg");
+      --content: #090510;
+    }
+
+    #container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    #container a {
+      color: #fcfcfc;
+      font-weight: bold;
+    }
+
+    #apps a {
+      display: inline-block;
+    }
+
+    #header {
+      width: 100%;
+      height: 150px;
+      background-image: var(--header-image);
+      background-size: 100%;
+    }
+
+    #navbar {
+      height: 40px;
+      background-color: #12111237;
+      /* navbar color */
+      width: 100%;
+    }
+
+    #navbar ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      justify-content: space-evenly;
+    }
+
+    #navbar li {
+      padding-top: 10px;
+    }
+
+    /* navigation links*/
+    #navbar li a {
+      color: #fcfcfc;
+      /* navbar text color */
+
+      font-weight: 800;
+      text-decoration: none;
+      /* no underline */
+    }
+
+    /* navigation link when a link is hovered over */
+    #navbar li a:hover {
+      color: #3577c1;
+      text-decoration: underline;
+    }
+
+    /* other hovered over links also diff color */
+    a:hover {
+      color: #3577c1;
+      text-decoration: underline;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    #flex {
+      display: flex;
+    }
+
+    /* left right sidebar  bg colors: */
+    aside {
+      background-color: #202020;
+      width: 300px;
+      padding: 20px;
+      font-size: smaller;
+    }
+
+    /* main text bg color  */
+    main {
+      background-color: #414142;
+      flex: 1;
+      padding: 20px;
+      order: 2;
+    }
+
+    /* what way what is: */
+
+    #leftsidebar {
+      order: 1;
+    }
+
+    #rightsidebar {
+      order: 3;
+    }
+
+    footer {
+      /* bg color for footer NOT NEEDED */
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    @font-face {
+      font-family: "MatrixSans-Video";
+      src: url(https://humantooth.neocities.org/fonts/MatrixSans-Video.woff2) format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* p {text-align: center;} */
+
+    body {
+      background-color: #0a0a0a;
+    }
+
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://tsimur.neocities.org/0assets/malta.jpg');
+    }
+  </style>
+
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    li,
+    td,
+    th {
+      font-family: "MatrixSans-Video", sans-serif;
+      color: #fcfcfc;
+    }
+  </style>
+
+  <style>
+    .box {
+      border: 1px solid #292727;
+      background-color: #00000061;
+      padding: 14px;
+      box-sizing: border-box;
+      width: fit-content;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .perkup {
+      display: block;
+      cursor: pointer;
+      transition:
+        transform 0.25s ease-out,
+        filter 0.25s ease-out;
+    }
+
+    .perkup:hover {
+      transform: translateY(-8px);
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      justify-content: center;
+      width: max-content;
+      margin: auto;
+    }
+
+    .topgif {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .overlay-container h3 {
+      margin: 0;
+      z-index: 1;
+    }
+  </style>
+
+  <script>
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  </script>
+
   <style>
     body {
-        animation: fadeInAnimation ease 10s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-    }
-    @keyframes fadeInAnimation {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
+      margin: 0;
+      background-color: #050505;
+      color: white;
+      font-family: sans-serif;
     }
 
-    .imagefade {
-      width:100%;
+    /* click to enter */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: pointer;
+      transition:
+        opacity 1s ease,
+        visibility 0.8s ease;
+      opacity: 1;
+      visibility: visible;
     }
-    @keyframes fadeInAnimation {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
+
+    #overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
     }
-  </style>    
 
+    /* audio thingie */
+    #audio-controls {
+      position: fixed;
+      top: 50px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      user-select: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
 
--->
+    #audio-controls.show {
+      opacity: 1;
+    }
 
-    <script src="script.js"></script>
-    <!-- thank you https://codepen.io/massiebn/pen/OJMbXz!!! :D-->
+    /* mute */
+    #mute-btn {
+      background: none;
+      border: none;
+      color: rgb(214, 142, 142);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0;
+    }
 
-    <style>
-      :root {
-        --header-image: url("https://tsimur.neocities.org/Belarus-Minsk-Opposition_Protests_2006.03.19.jpg");
-        --content: #090510;
-      }
+    /* volume */
+    #volume-slider {
+      width: 80px;
+      cursor: pointer;
+      accent-color: #ffffff;
+    }
+  </style>
+</head>
 
-      #container {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      #container a {
-        color: #fcfcfc;
-        font-weight: bold;
-      }
-
-      #apps a {
-        display: inline-block;
-      }
-
-      #header {
-        width: 100%;
-        height: 150px;
-        background-image: var(--header-image);
-        background-size: 100%;
-      }
-
-      #navbar {
-        height: 40px;
-        background-color: #121112;
-        /* navbar color */
-        width: 100%;
-      }
-
-      #navbar ul {
-        display: flex;
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        justify-content: space-evenly;
-      }
-
-      #navbar li {
-        padding-top: 10px;
-      }
-
-      /* navigation links*/
-      #navbar li a {
-        color: #fcfcfc;
-        /* navbar text color */
-
-        font-weight: 800;
-        text-decoration: none;
-        /* no underline */
-      }
-
-      /* navigation link when a link is hovered over */
-      #navbar li a:hover {
-        color: #3577c1;
-        text-decoration: underline;
-      }
-
-      /* other hovered over links also diff color */
-      a:hover {
-        color: #3577c1;
-        text-decoration: underline;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      #flex {
-        display: flex;
-      }
-
-      /* left right sidebar  bg colors: */
-      aside {
-        background-color: #202020;
-        width: 300px;
-        padding: 20px;
-        font-size: smaller;
-      }
-
-      /* main text bg color  */
-      main {
-        background-color: #414142;
-        flex: 1;
-        padding: 20px;
-        order: 2;
-      }
-
-      /* what way what is: */
-
-      #leftsidebar {
-        order: 1;
-      }
-
-      #rightsidebar {
-        order: 3;
-      }
-
-      footer {
-        /* bg color for footer NOT NEEDED */
-        width: 100%;
-        height: 40px;
-        padding: 10px;
-        text-align: center;
-      }
-
-      @font-face {
-        font-family: "MatrixSans-Video";
-        src: url(https://humantooth.neocities.org/fonts/MatrixSans-Video.woff2)
-          format("woff2");
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      /* p {text-align: center;} */
-
-      body {
-        background-color: #0a0a0a;
-
-        background-image: var(--body-bg-image);
-      }
-    </style>
-
-    <style>
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p,
-      a,
-      li,
-      td,
-      th {
-        font-family: "MatrixSans-Video", sans-serif;
-        color: #fcfcfc;
-      }
-    </style>
-
-    <style>
-      .box {
-        border: 1px solid #808080;
-        padding: 5px;
-        box-sizing: border-box;
-        width: fit-content;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-      }
-      .perkup {
-        display: block;
-        cursor: pointer;
-        transition:
-          transform 0.25s ease-out,
-          filter 0.25s ease-out;
-      }
-      .perkup:hover {
-        transform: translateY(-8px);
-      }
-
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
-
-    <script>
-      window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-      };
-    </script>
-
-    <style>
-      body {
-        margin: 0;
-        background-color: #050505;
-        color: white;
-        font-family: sans-serif;
-      }
-
-      /* click to enter */
-      #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #000000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        cursor: pointer;
-        transition:
-          opacity 0.8s ease,
-          visibility 0.8s ease;
-        opacity: 1;
-        visibility: visible;
-      }
-
-      #overlay.fade-out {
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      /* audio thingie */
-      #audio-controls {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 10px 15px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        z-index: 1000;
-        user-select: none;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-
-      #audio-controls.show {
-        opacity: 1;
-      }
-
-      /* mute */
-      #mute-btn {
-        background: none;
-        border: none;
-        color: rgb(176, 176, 176);
-        cursor: pointer;
-        font-size: 16px;
-        padding: 0;
-      }
-
-      /* volume */
-      #volume-slider {
-        width: 80px;
-        cursor: pointer;
-        accent-color: #ffffff;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="hi">
-      <div id="header"></div>
-      <div id="topbar">
-        <div id="headerarea">
-          <nav id="navbar" style="margin-bottom: 10px">
-            <ul>
-              <li><a href="index.html">home</a></li>
-              <li><a href="about.html">about</a></li>
-              <li><a href="photos.html">photos</a></li>
-            </ul>
-          </nav>
-        </div>
+<body>
+  <div id="hi">
+    <div id="topbar">
+      <div id="headerarea">
+        <nav id="navbar" style="margin-bottom: 10px">
+          <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="fake guns.lol.html">links</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
+  </div>
 
-    <div id="overlay" onclick="enterSite()">
-      <h2>[ click to enter ]</h2>
+  <div id="overlay" onclick="enterSite()">
+    <h2>[ click to enter ]</h2>
+  </div>
+
+  <br /><br /><br /><br /><br /><br /><br /><br />
+
+  <div class="overlay-container">
+    <img class="topgif" src="https://tsimur.neocities.org/0assets/sparkle_white.gif">
+    <!--this gif is quite literally stolen from guns.lol i liked it :PPP-->
+
+    <div class="center">
+      <h2> <img src="https://tsimur.neocities.org/0assets/bchb.png" width=20 height=15
+          alt="bchb belarusian whiteredwhite flag">tsimur:</h2>
     </div>
+  </div>
 
-    <br /><br /><br /><br /><br /><br /><br /><br />
+  <div class="box">
+    <img src="https://tsimur.neocities.org/0assets/kay.jpg" width="100" height="100"
+      style="float: left; margin: 0 20px 20px 0" alt="tsimur" />
 
-    <h3>tsimur:</h3>
-    <div class="box">
-      <img
-        src="https://tsimur.neocities.org/0assets/Me.png"
-        width="100"
-        height="100"
-        style="float: left; margin: 0 20px 20px 0"
-        alt="tsimur"
-      />
+    <a href="https://discord.com/users/243364508439937025">
+      <img src="https://tsimur.neocities.org/0assets/discord.png" width="30" height="30" alt="discord" class="perkup"
+        title="my discord:
+        6cf2" />
+    </a>
 
-      <a href="https://discord.com/users/243364508439937025">
-        <img
-          src="https://tsimur.neocities.org/0assets/discord.png"
-          width="30"
-          height="30"
-          alt="discord"
-          class="perkup"
-        />
-      </a>
+    <a href="https://signal.me/#eu/HZqieyWkvomhBuqQsT5LvT2v_ZIikoME7vn6JEcvzu-TIIvOQadDg6yoUSuLI9ai">
+      <img src="https://tsimur.neocities.org/0assets/signal.png" width="30" height="30" alt="soundcloud" class="perkup"
+        title="my signal:
+        axxturel.66" />
+    </a>
 
-      <a
-        href="https://signal.me/#eu/HZqieyWkvomhBuqQsT5LvT2v_ZIikoME7vn6JEcvzu-TIIvOQadDg6yoUSuLI9ai"
-      >
-        <img
-          src="https://tsimur.neocities.org/0assets/signal.png"
-          width="30"
-          height="30"
-          alt="soundcloud"
-          class="perkup"
-        />
-      </a>
+    <a href="https://t.me/renichtasa1">
+      <img src="https://tsimur.neocities.org/0assets/telegram.png" width="30" height="30" alt="telegram" class="perkup"
+        title="my telegram:
+        renichtasa1" />
+    </a>
 
-      <a href="https://t.me/renichtasa1">
-        <img
-          src="https://tsimur.neocities.org/0assets/telegram.png"
-          width="30"
-          height="30"
-          alt="telegram"
-          class="perkup"
-        />
-      </a>
+    <a href="https://www.instagram.com/renichtasa1/">
+      <img src="https://tsimur.neocities.org/0assets/instagram.png" width="30" height="30" alt="instagram"
+        class="perkup" title="my instagram:
+        renichtasa1" />
+    </a>
 
-      <a href="https://www.instagram.com/renichtasa1/">
-        <img
-          src="https://tsimur.neocities.org/0assets/instagram.png"
-          width="30"
-          height="30"
-          alt="instagram"
-          class="perkup"
-        />
-      </a>
+    <a href="https://github.com/TheWheee">
+      <img src="https://tsimur.neocities.org/0assets/github.png" width="30" height="30" alt="github" class="perkup"
+        title="my github:
+      TheWheee" />
+    </a>
 
-      <a href="https://github.com/TheWheee">
-        <img
-          src="https://tsimur.neocities.org/0assets/github.png"
-          width="30"
-          height="30"
-          alt="github"
-          class="perkup"
-        />
-      </a>
+    <a href="mailto:wheeetabixer@protonmail.com">
+      <img src="https://tsimur.neocities.org/0assets/mail.png" width="30" height="30" alt="email" class="perkup" title="my mail:
+      wheeetabixer@protonmail.com" />
+    </a>
+  </div>
 
-      <a href="mailto:wheeetabixer@protonmail.com">
-        <img
-          src="https://tsimur.neocities.org/0assets/mail.png"
-          width="30"
-          height="30"
-          alt="email"
-          class="perkup"
-        />
-      </a>
-    </div>
+  <!-- audio control -->
+  <div id="audio-controls">
+    <button id="mute-btn" onclick="toggleMute()">mute?</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" oninput="changeVolume(this.value)" />
+  </div>
 
-    <!-- audio control -->
-    <div id="audio-controls">
-      <button id="mute-btn" onclick="toggleMute()">mute?</button>
-      <input
-        type="range"
-        id="volume-slider"
-        min="0"
-        max="1"
-        step="0.01"
-        value="0.5"
-        oninput="changeVolume(this.value)"
-      />
-    </div>
+  <!-- bg song -->
+  <audio id="bg-music" loop>
+    <source src="https://file.garden/arMUwFYb6e4XlKHQ/hoe%20(slowed)%20(prod.%20ICYTWAT).mp3" type="audio/mpeg" />
+  </audio>
 
-    <!-- bg song -->
-    <audio id="bg-music" loop>
-      <source
-        src="https://file.garden/arMUwFYb6e4XlKHQ/hoe%20(slowed)%20(prod.%20ICYTWAT).mp3"
-        type="audio/mpeg"
-      />
-    </audio>
+  <script>
+    const music = document.getElementById("bg-music");
+    const muteBtn = document.getElementById("mute-btn");
+    const volumeSlider = document.getElementById("volume-slider");
 
-    <script>
-      const music = document.getElementById("bg-music");
-      const muteBtn = document.getElementById("mute-btn");
-      const volumeSlider = document.getElementById("volume-slider");
+    // 50 percent audio
+    music.volume = 0.5;
 
-      // 50 percent audio
-      music.volume = 0.5;
+    function enterSite() {
+      music.play().catch((error) => console.log("Playback blocked:", error));
 
-      function enterSite() {
-        music.play().catch((error) => console.log("Playback blocked:", error));
+      document.getElementById("overlay").classList.add("fade-out");
 
-        document.getElementById("overlay").classList.add("fade-out");
+      document.getElementById("audio-controls").classList.add("show");
+    }
 
-        document.getElementById("audio-controls").classList.add("show");
+    // un/mute buttons
+    function toggleMute() {
+      if (music.muted) {
+        music.muted = false;
+        muteBtn.innerText = "unmute?";
+        volumeSlider.value = music.volume;
+      } else {
+        music.muted = true;
+        muteBtn.innerText = "unmute?";
+        volumeSlider.value = 0;
       }
+    }
 
-      // un/mute buttons
-      function toggleMute() {
-        if (music.muted) {
-          music.muted = false;
-          muteBtn.innerText = "unmute?";
-          volumeSlider.value = music.volume;
-        } else {
-          music.muted = true;
-          muteBtn.innerText = "unmute?";
-          volumeSlider.value = 0;
-        }
+    function changeVolume(volumeValue) {
+      music.volume = volumeValue;
+
+      if (volumeValue == 0) {
+        music.muted = true;
+        muteBtn.innerText = "mute?";
+      } else {
+        music.muted = false;
+        muteBtn.innerText = "unmute?";
       }
+    }
+  </script>
 
-      function changeVolume(volumeValue) {
-        music.volume = volumeValue;
 
-        if (volumeValue == 0) {
-          music.muted = true;
-          muteBtn.innerText = "mute?";
-        } else {
-          music.muted = false;
-          muteBtn.innerText = "unmute?";
-        }
-      }
-    </script>
-  </body>
+</body>
+
 </html>
