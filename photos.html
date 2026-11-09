@@ -1,277 +1,898 @@
+<!DOCTYPE html>
+<html>
+<!--THANK YOU TO milesoutlit FOR TEMPLATE ON NEOCITIES -->
+
 <head>
-    <meta charset="utf-8">
-    <title>about</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://tsimur.neocities.org/0assets/face-raspberry.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>photos</title>
+  <link href="/characterpage.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- hi :D if youre reading wtf ts is its cos half of it was written when i was 12 and i just wanted to keep t-t-->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <script src="script.js"></script> <!-- thank you https://codepen.io/massiebn/pen/OJMbXz!!! :D-->
+    @font-face {
+      font-family: "MatrixSans-Video";
+      src: url(https://humantooth.neocities.org/fonts/MatrixSans-Video.woff2) format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
 
 
-    <style>
-        body {
-            animation: fadeInAnimation ease 10s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-        }
+    body {
 
-        @keyframes fadeInAnimation {
-            0% {
-                opacity: 0;
-            }
+      /* bg */
+      background-image: url("https://tsimur.neocities.org/EarlsCourt.jpg");
+      background-color: #323232;
 
-            100% {
-                opacity: 1;
-            }
-        }
-    </style>
-
-    <style>
-        :root {
-            --header-image: url('https://tsimur.neocities.org/Belarus-Minsk-Opposition_Protests_2006.03.19.jpg');
-            --content: #090510;
-        }
-
-        #container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        #container a {
-            color: #FCFCFC;
-            font-weight: bold;
-
-        }
-
-        #header {
-            width: 100%;
-            height: 150px;
-            background-image: var(--header-image);
-            background-size: 100%;
-        }
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
 
 
 
+      /* text color, size, and font */
+      color: #fcfcfc;
+      font-size: 95%;
+      font-family: MatrixSans-Video;
+    }
 
-        #navbar {
-            height: 40px;
-            background-color: #121112;
-            /* navbar color */
-            width: 100%;
-        }
+    /* what everything is put in */
+    .container {
 
-        #navbar ul {
-            display: flex;
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-            justify-content: space-evenly;
-        }
+      /* color and border */
+      background-color: #0101018e;
+      border: solid 1px #474747;
 
-        #navbar li {
-            padding-top: 10px;
-        }
+      /* this centers the container */
+      margin: auto;
 
-        /* navigation links*/
-        #navbar li a {
-            color: #FCFCFC;
-            /* navbar text color */
+      padding: 15px;
+      margin-top: 25px;
+      margin-bottom: 25px;
 
+      max-width: 800px;
+    }
 
-            font-weight: 800;
-            text-decoration: none;
-            /* no underline */
-        }
+    /* what everything is put in part 2 */
+    .containercontent {
+      display: grid;
+      grid-gap: 15px;
+      grid-template:
+        "header header"
+        "main main"
+        "footer footer"
+        / 1fr 240px;
+    }
 
-        /* navigation link when a link is hovered over */
-        #navbar li a:hover {
-            color: #888296;
-            text-decoration: underline;
-        }
+    header {
+      grid-area: header;
+    }
 
-        * {
-            box-sizing: border-box;
+    main {
+      grid-area: main;
+    }
 
-        }
+    footer {
+      grid-area: footer;
+    }
 
+    /* for the image banner */
+    .imgheader {
+      width: 100%;
+      height: 250px;
 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
 
-        #flex {
-            display: flex;
-        }
-
-        /* left right sidebar  bg colors: */
-        aside {
-            background-color: #202020;
-            width: 300px;
-            padding: 20px;
-            font-size: smaller;
-
-        }
-
-
-        /* main text bg color  */
-        main {
-            background-color: #414142;
-            flex: 1;
-            padding: 20px;
-            order: 2;
-        }
+      border: solid 1px #474747;
+    }
 
 
-        footer {
-            /* bg color for footer not needed */
-            width: 100%;
-            height: 40;
-            padding: 10;
-            text-align: center;
-        }
 
 
-        @font-face {
-            font-family: 'MatrixSans-Video';
-            src: url(https://humantooth.neocities.org/fonts/MatrixSans-Video.woff2) format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
+
+    p {
+      margin: 0;
+      margin-bottom: 15px;
+      line-height: 20px;
+
+      /* feel free to change this */
+      text-align: justify;
+    }
+
+    a {
+      color: #97ab8f;
+    }
+
+    /* highlight color */
+    highlight {
+      background-color: #56684e;
+    }
+
+    /* muted text color */
+    muted {
+      color: #dedede9c;
+    }
+
+    .muted {
+      color: #dedede9c;
+    }
+
+    /* colored text */
+    colored {
+      color: #97ab8f;
+    }
+
+    .colored {
+      color: #97ab8f;
+    }
+
+    /* heading colors */
+    h1,
+    h2 {
+      color: #97ab8f;
+    }
+
+    h3 {
+      color: #dedede9c;
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: .5px;
+      margin-block: 10px;
+    }
+
+    h1 {
+      font-size: 1.94em;
+    }
+
+    h2 {
+      font-size: 1.58em;
+    }
+
+    h3 {
+      font-size: 1.25em;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    ul {
+      padding-left: 30px;
+    }
+
+    /* the quote block */
+    quote {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+
+      font-style: italic;
+      font-size: 95%;
+
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: 10px;
+
+      border-style: solid;
+      border-width: 0 4px;
+      border-color: #474747;
+    }
+
+    /* divider */
+    hr {
+      border: solid 1px #474747;
+      margin-bottom: 10px;
+    }
+
+    /* content warning */
+    .warning {
+      padding: 20px;
+      margin: 15px;
+      background-color: #131313;
+      text-align: center;
+    }
+
+    .warning b {
+      text-transform: uppercase;
+      color: #be8e61;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 17px;
+    }
 
 
-        /*mobile stuff*/
-        @media only screen and (max-width: 800px) {
-            #flex {
-                flex-wrap: wrap;
-            }
-
-            aside {
-                width: 100%;
-            }
-
-            main {
-                order: 1;
-            }
-
-            #leftsidebar {
-                order: 2;
-            }
 
 
-            #navbar ul {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+    /* 
+      
+
+      
+      CHARACTER CARD
+      
 
 
-    <style>
-        /* p {text-align: center;} */
+      */
 
-        body {
-            background-color: #0A0A0A;
-        }
-    </style>
+    .charactercard {
 
+      /* card border */
+      border: solid 1px #3b3b3b;
 
-    <style>
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        a,
-        li,
-        td,
-        th {
-            font-family: 'MatrixSans-Video', sans-serif;
+      /* keeps it on the right */
+      float: right;
 
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            p,
-            a,
-            li,
-            td,
-            th,
-            div {
-                color: #FCFCFC;
-            }
-        }
-    </style>
+      padding: 10px;
+      width: 250px;
+      margin-left: 15px;
+      margin-bottom: 15px;
+    }
 
-    <style>
-        .div1 {
-            width: 300px;
-            height: 500px;
-            border: 2px solid #808080;
-        }
+    .nameheader {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: georgia, serif;
+      text-align: center;
 
-        .box {
-            background-color: #202020;
-            border: 1px solid #808080;
-            padding: 9px;
-        }
-    </style>
+      padding-bottom: 13px;
+      padding-top: 5px;
+    }
+
+    /* sizing stuff for character image */
+    .characterimg {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 10px;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      border: solid 1px #474747;
+    }
 
 
-    <script>
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        };
-    </script>
+
+    /* 
+      
+
+      The character image tabber
+      
+
+      */
+
+    .tab {
+      overflow: hidden;
+
+      /* tab color */
+      background-color: #202020;
+    }
+
+    /* tab buttons */
+    .tab button {
+      background-color: inherit;
+      border: solid 1px #3b3b3b;
+
+      /* button text */
+      font-family: times new roman, serif;
+      color: #dededeac;
+
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 10px;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    /* what color the button will change to when you hover over it */
+    .tab button:hover {
+      background-color: #3b3b3b;
+    }
+
+    /* what color the button will change to when you click on it */
+    .tab button.active {
+      background-color: #3b3b3b;
+    }
+
+
+
+    /* 
+      
+      Character information buttons
+      
+      */
+
+    .accordion {
+
+      /* customization */
+      background-color: #202020;
+      color: #dedede;
+      font-family: times new roman, serif;
+      font-size: 16px;
+
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      transition: 0.4s;
+    }
+
+    /* the color the buttons will change to when you hover over it and when you click it */
+    .active,
+    .accordion:hover {
+      background-color: #131313;
+    }
+
+    /* the character info container */
+    .accordioncontent {
+      font-size: 90%;
+      background-color: #202020;
+
+      padding: 0 7px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      margin-bottom: 5px;
+    }
+
+    .accordtext {
+      text-transform: uppercase;
+      font-size: 85%;
+    }
+
+    /* table stuff for character info section */
+    table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    tr.infotable {
+      border-style: solid;
+      border-width: 0 0 1px 0;
+      border-color: #474747;
+    }
+
+    th,
+    td {
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+
+    /* stuff for the table of contents */
+    table.toc {
+      width: 250px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+
+    tr.toc {
+      border: solid 1px #474747;
+    }
+
+    th.toc,
+    td.toc {
+      padding: 10px;
+    }
+
+
+
+
+
+    /*
+      
+
+      CSS to make things mobile friendly
+
+
+      */
+
+    @media screen and (max-width: 585px) {
+      .containercontent {
+        grid-template:
+          "header"
+          "main"
+          "footer"
+          / 1fr;
+      }
+
+      .charactercard {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+      }
+
+      .characterimg {
+        height: 450px;
+      }
+    }
+
+    @media screen and (max-width: 350px) {
+      .characterimg {
+        height: 400px;
+      }
+    }
+  </style>
+
 </head>
+
+
+
+
+
+
 
 
 
 
 <body>
 
+  <div class="warning" style="line-height: 20px;">
+    <b>content warning</b>
+    <br><br>
 
-    <div id="hi">
+    <muted>heavily unfinished!!</muted>
+    <br>
+    will be accomplished and polished most likeley by next week of terra :D
+  </div>
 
-        <div id="header">
+  <div class="container">
+    <div class="containercontent">
+
+      <header>
+
+        <!-- folder links -->
+        <div style="margin-bottom: 10px;font-size: 90%;">
+
+          <a href="https://tsimur.neocities.org/">back home</a> <i class="fa fa-angle-right"></i>
+
+          <!-- <a href="link">Sub-folder</a> <i class="fa fa-angle-right"></i> -->
+
+          photos:
 
         </div>
-        <div id="topbar">
 
-            <div id="headerarea">
-                <nav id="navbar" style="margin-bottom: 10px;">
-                    <ul>
-                        <li><a href="home.html">home</a></li>
-                        <li><a href="about.html">about</a></li>
-                        <li><a href="index.html">photos</a></li>
+        <!-- image banner, center is for if you want to put text in it -->
+        <div class="imgheader center" style="
+          background-image: url('https://tsimur.neocities.org/0assets/funnycatmadein2min.png');"></div>
+
+      </header>
+
+      <main>
+        <div class="charactercard">
+
+          <div class="nameheader">
+            smth tsimur placeholder
+          </div>
+
+          <div class="tab">
+            <button class="tablinks" onclick="openimg(event, 'imgone') " id="defaultOpen">
+              1
+            </button>
+
+            <button class="tablinks" onclick="openimg(event, 'imgtwo')">
+              2
+            </button>
+
+            <button class="tablinks" onclick="openimg(event, 'imgthree')">
+              3
+            </button>
+          </div>
+
+
+
+          <!-- first image -->
+          <div id="imgone" class="tabcontent">
+            <div class="characterimg" style="
+                background-image: url('https://tsimur.neocities.org/a.jpg');">
             </div>
+          </div>
 
-            <H3>photos:</H3>
-
-            <div id="flex">
-                <aside id="leftsidebar" style="margin-right: 10px;">
-                    ghmgmdf
+          <!-- second image -->
+          <div id="imgtwo" class="tabcontent">
+            <div class="characterimg" style="
+                background-image: url('https://tsimur.neocities.org/comicon.jpg');">
             </div>
-            </aside>
+          </div>
 
 
-            <main>
-                hjhjm
+          <!-- third image -->
+          <div id="imgthree" class="tabcontent">
+            <div class="characterimg" style="
+                background-image: url('https://tsimur.neocities.org/malta.jpg');">
+            </div>
+          </div>
+
+
+
+
+          <button class="accordion">
+            Character Information
+            <muted style="font-size: 12px;">(click me!)</muted>
+          </button>
+          <div class="accordioncontent">
+            <table>
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  name
+                </td>
+                <td>
+                  tsimur
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  age
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  gender
+                </td>
+                <td>
+                  male, he/him
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  species
+                </td>
+                <td>
+                  human:O
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  orientation
+                </td>
+                <td>
+                  gay
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  occupation
+                </td>
+                <td>
+                  unemployed :O:o
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+
+          <button class="accordion">
+            Background
+          </button>
+          <div class="accordioncontent" style="line-height: 23px;">
+            <table>
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  origin
+                </td>
+                <td>
+                  Place of Birth
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  residence
+                </td>
+                <td>
+                  Residence
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted">
+                  marital status
+                </td>
+                <td>
+                  Marital Status
+                </td>
+              </tr>
+
+              <tr class="infotable">
+                <td class="accordtext muted" style="vertical-align: text-top;">
+                  relatives
+                </td>
+                <td>
+                  • Character (role, status)<br>
+                  • Character (role, status)
+                </td>
+              </tr>
+            </table>
+
+          </div>
+
         </div>
-        </aside>
+
+        <!-- quote block -->
+        <quote>
+          ""
+        </quote>
+
+        <!-- character summary section -->
+        <p>
+          Normal
+          <muted>Muted</muted>
+          <colored>Colored</colored>
+          <i>Italic</i>
+          <b>Bold</b>
+          <u>Underlined</u>
+          <a href="link">Link</a>
+          <s>Strikethrough</s>
+          <highlight>Highlight</highlight>
+        </p>
+
+        <p>
+          I like drawing, and here i will present not only my drawings//stuff i do for gcse art, but also any photos i
+          like :p
+        </p>
+
+        <!-- table of contents -->
+        <table class="toc">
+          <tr class="toc">
+            <th class="toc" style="text-align: left;">
+              <i class="fa fa-list muted" style="margin-right: 3px;"></i>
+              Table of Contents
+            </th>
+          </tr>
+          <tr class="toc" style="line-height: 23px;">
+            <td class="toc">
+              <span class="muted" style="margin-right: 5px;">1.</span>
+              <a href="#gcse" style="color: #dedede;">
+                gcse art
+              </a>
+              <br>
+              <span class="muted" style="margin-right: 5px;">2.</span>
+              <a href="#personal" style="color: #dedede;">
+                personal drawings
+              </a>
+              <br>
+              <span class="muted" style="margin-left: 10px;">
+                <span style="margin-right: 5px;">3.</span>
+                <a href="#subtitleone" style="color: #dedede;">
+                  photos
+                </a>
+              </span>
+              <br>
+              <span class="muted" style="margin-left: 10px;">
+                <span style="margin-right: 5px;">4</span>
+                <a href="#subtitletwo" style="color: #dedede;">
+                  other
+                </a>
+              </span>
+              <br>
+
+              </a>
+            </td>
+          </tr>
+        </table>
+
+
+
+        <h2 id="gcse">
+          gcse art
+        </h2>
+        <hr class="heading">
+        <p>
+          Im focusing on the theme of travels, usually focusing on the people surrounding different areas. i spend a
+          certain amount of time documenting certain iteams and buildings from areas i have visited- collecting items
+          such as train or bus tickets as well as
+        </p>
+        <br>
+
+
+
+        <h2 id="personality">
+          personal
+        </h2>
+        <hr class="heading">
+        <p>
+          outside of school, i often draw seperatley and a lot more loose as compared to what the gcse
+          specifications requires- however all my work is still in the same notebook just incase i need it for a
+          specific situation. I often try to carry my sketchbook as much as possible with me, but rarely do due to a
+          lack of particular chance to use it even if i did take it
+        </p>
+        <br>
+
+
+
+        <h2 id="story">
+          Story
+        </h2>
+        <hr class="heading">
+
+        <!--
+        <div class="warning" style="line-height: 20px;">
+          <b>content warning</b>
+          <br><br>
+
+          <muted>this section includes sensitive content such as:</muted>
+          <br>
+           put warnings here 
+mentions of suicide, mental issues
+        </div> -->
+
+        <h3 id="subtitleone">
+          Subtitle
+        </h3>
+        <p>
+          Praesent accumsan ut ex quis viverra. Pellentesque interdum ligula augue, rhoncus vestibulum justo maximus
+          lobortis. Nulla nisl ante, pretium quis leo a, bibendum convallis nisi. Vestibulum ante ipsum primis in
+          faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Sed molestie nibh
+          ligula, ut congue ante interdum ut. Quisque augue orci, faucibus eget ligula ut, lacinia dictum augue. Nullam
+          laoreet laoreet aliquam. Quisque semper sagittis ipsum, vitae mollis nulla efficitur id. Vivamus et dui nisl.
+          Suspendisse in ex sapien. Pellentesque a mi elit. Sed id ante vitae lorem bibendum tempus vel vitae justo.
+          Praesent pretium vestibulum ex, egestas rutrum massa placerat sit amet. Nunc hendrerit dui sed ligula ultrices
+          volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+        </p>
+        <br>
+
+        <h3 id="subtitletwo">
+          Subtitle
+        </h3>
+        <p>
+          Fusce porta risus ut ex tristique consequat. Phasellus sit amet rhoncus tellus, sed egestas turpis.
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque
+          sapien nulla, posuere tristique congue non, accumsan a erat. Ut et nibh a tortor vehicula condimentum. Fusce
+          rutrum non metus id aliquet. Ut eros mauris, scelerisque non massa sit amet, auctor consectetur erat.
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean rhoncus
+          metus vel porta vestibulum. Maecenas iaculis varius orci, et commodo nulla lobortis vitae. Lorem ipsum dolor
+          sit amet, consectetur adipiscing elit. Nullam feugiat purus sit amet massa porta, sed laoreet risus pulvinar.
+          Ut ornare dapibus massa, in pretium massa venenatis a. Praesent eu lacus non mauris pellentesque venenatis sit
+          amet vel purus. Aenean gravida orci eu lorem dapibus, ac lobortis libero ultricies. Ut pharetra risus a sapien
+          euismod suscipit.
+        </p>
+        <br>
+
+
+
+        <h2 id="relationships">
+          Relationships
+        </h2>
+        <hr class="heading">
+
+        <p style="font-size: 20px;">
+          <b><a href="link">
+              Character Name
+            </a></b>
+        </p>
+        <p>
+          Sed egestas dui ligula, a egestas felis eleifend ultrices. Suspendisse sagittis nec sapien in lobortis.
+          Phasellus elit tellus, mollis id nulla a, gravida condimentum justo. Etiam eget justo est. Donec non auctor
+          ligula, non dictum dolor. Nullam mattis erat enim, non finibus massa mattis eget. Nunc pharetra nec dolor
+          gravida faucibus. Quisque ut eleifend massa, eu pulvinar purus. Vivamus placerat semper ultrices. Nullam metus
+          lacus, hendrerit ac est commodo, commodo luctus leo.
+        </p>
+
+        <p style="font-size: 20px;">
+          <b><a href="link">
+              Character Name
+            </a></b>
+        </p>
+        <p>
+          Sed egestas dui ligula, a egestas felis eleifend ultrices. Suspendisse sagittis nec sapien in lobortis.
+          Phasellus elit tellus, mollis id nulla a, gravida condimentum justo. Etiam eget justo est. Donec non auctor
+          ligula, non dictum dolor. Nullam mattis erat enim, non finibus massa mattis eget. Nunc pharetra nec dolor
+          gravida faucibus. Quisque ut eleifend massa, eu pulvinar purus. Vivamus placerat semper ultrices. Nullam metus
+          lacus, hendrerit ac est commodo, commodo luctus leo.
+        </p>
+        <br>
+
+
+        <!--
+        <h2 id="trivia">
+          Trivia
+        </h2>
+        <hr class="heading">
+        <ul>
+          <li>
+            content
+          </li>
+          <li>
+          </li>
+          <li>
+            content
+          </li>
+        </ul>
+      </main>
+
+
+      dont think anyone wants to do a trivia on my amateur art but lol
+    -->
+
+        <footer>
+          <hr />
+          <p>
+            tsimur<img src="https://tsimur.neocities.org/0assets/bchb.png" width="20" height="15"
+              alt="bchb belarusian whiteredwhite flag" />
+          </p>
+          <img src="https://tsimur.neocities.org/neocities.png" width="88" height="31" alt="hosted on neocities" />
+          <img src="https://tsimur.neocities.org/0assets/ns-best.gif" width="88" height="31" alt="netscape" />
+        </footer>
 
     </div>
-    </main>
+  </div>
 
-    </div>
 
-    <footer>
-        <p>@tsimur//renichtasa1</p>
-        <img src="https://tsimur.neocities.org/neocities.png" width="88" height="31" alt="neocities">
-        <img src="https://tsimur.neocities.org/0assets/ns-best.gif" width="88" height="31" alt="Netscape">
-    </footer>
+
+
+
+
+
+
+
+
+  <!--
+    
+    
+    
+    script for tabs and accordian
+    
+    
+    
+    -->
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var accordiancontent = this.nextElementSibling;
+        if (accordiancontent.style.maxHeight) {
+          accordiancontent.style.maxHeight = null;
+        } else {
+          accordiancontent.style.maxHeight = accordiancontent.scrollHeight + "px";
+        }
+      });
+    }
+
+    function openimg(evt, imgName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(imgName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+  </script>
 
 </body>
+
+
 
 </html>

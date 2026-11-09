@@ -1,0 +1,387 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* changes background */
+  background-image: url("https://i.pinimg.com/control1/1200x/01/e8/88/01e888413ec597e3ffd30fd5e735caad.jpg");
+  background-color: #131313;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+  /* text color, size, and font */
+  color: #dedede;
+  font-size: 95%;
+  font-family:
+    times new roman,
+    serif;
+}
+
+/* what everything is put in */
+.container {
+  /* color and border */
+  background-color: #202020;
+  border: solid 1px #474747;
+
+  /* this centers the container */
+  margin: auto;
+
+  padding: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  max-width: 800px;
+}
+
+/* what everything is put in part 2 */
+.containercontent {
+  display: grid;
+  grid-gap: 15px;
+  grid-template:
+    "header header"
+    "main main"
+    "footer footer"
+    / 1fr 240px;
+}
+
+header {
+  grid-area: header;
+}
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}
+
+/* for the image banner */
+.imgheader {
+  width: 100%;
+  height: 100px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: solid 1px #474747;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 15px;
+  line-height: 20px;
+
+  /* feel free to change this */
+  text-align: justify;
+}
+
+/* link text color, remove text decoration if you want to keep the link underline */
+a {
+  color: #97ab8f;
+  text-decoration: none;
+}
+
+/* highlight color */
+highlight {
+  background-color: #56684e;
+}
+
+/* muted text color */
+muted {
+  color: #dedede9c;
+}
+.muted {
+  color: #dedede9c;
+}
+
+/* colored text */
+colored {
+  color: #97ab8f;
+}
+.colored {
+  color: #97ab8f;
+}
+
+/* heading colors */
+h1,
+h2 {
+  color: #97ab8f;
+}
+
+h3 {
+  color: #dedede9c;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.5px;
+  margin-block: 10px;
+}
+h1 {
+  font-size: 1.94em;
+}
+h2 {
+  font-size: 1.58em;
+}
+h3 {
+  font-size: 1.25em;
+}
+
+.center {
+  text-align: center;
+}
+
+ul {
+  padding-left: 30px;
+}
+
+/* the quote block */
+quote {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+
+  font-style: italic;
+  font-size: 95%;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+
+  border-style: solid;
+  border-width: 0 4px;
+  border-color: #474747;
+}
+
+/* divider */
+hr {
+  border: solid 1px #474747;
+  margin-bottom: 10px;
+}
+
+/* content warning */
+.warning {
+  padding: 20px;
+  margin: 15px;
+  background-color: #131313;
+  text-align: center;
+}
+.warning b {
+  text-transform: uppercase;
+  color: #be8e61;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 17px;
+}
+
+/* 
+      
+
+      
+      CHARACTER CARD
+      
+
+
+      */
+
+.charactercard {
+  /* card border */
+  border: solid 1px #3b3b3b;
+
+  /* keeps it on the right */
+  float: right;
+
+  padding: 10px;
+  width: 250px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.nameheader {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: georgia, serif;
+  text-align: center;
+
+  padding-bottom: 13px;
+  padding-top: 5px;
+}
+
+/* sizing stuff for character image */
+.characterimg {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: solid 1px #474747;
+}
+
+/* 
+      
+
+      The character image tabber
+      
+
+      */
+
+.tab {
+  overflow: hidden;
+
+  /* tab color */
+  background-color: #202020;
+}
+
+/* tab buttons */
+.tab button {
+  background-color: inherit;
+  border: solid 1px #3b3b3b;
+
+  /* button text */
+  font-family:
+    times new roman,
+    serif;
+  color: #dededeac;
+
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+/* what color the button will change to when you hover over it */
+.tab button:hover {
+  background-color: #3b3b3b;
+}
+
+/* what color the button will change to when you click on it */
+.tab button.active {
+  background-color: #3b3b3b;
+}
+
+/* 
+      
+      Character information buttons
+      
+      */
+
+.accordion {
+  /* customization */
+  background-color: #202020;
+  color: #dedede;
+  font-family:
+    times new roman,
+    serif;
+  font-size: 16px;
+
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* the color the buttons will change to when you hover over it and when you click it */
+.active,
+.accordion:hover {
+  background-color: #131313;
+}
+
+/* the character info container */
+.accordioncontent {
+  font-size: 90%;
+  background-color: #202020;
+
+  padding: 0 7px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-bottom: 5px;
+}
+
+.accordtext {
+  text-transform: uppercase;
+  font-size: 85%;
+}
+
+/* table stuff for character info section */
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr.infotable {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #474747;
+}
+
+th,
+td {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+/* stuff for the table of contents */
+table.toc {
+  width: 250px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+tr.toc {
+  border: solid 1px #474747;
+}
+
+th.toc,
+td.toc {
+  padding: 10px;
+}
+
+/*
+      
+
+      CSS to make things mobile friendly
+
+
+      */
+
+@media screen and (max-width: 585px) {
+  .containercontent {
+    grid-template:
+      "header"
+      "main"
+      "footer"
+      / 1fr;
+  }
+
+  .charactercard {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+
+  .characterimg {
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .characterimg {
+    height: 400px;
+  }
+}
