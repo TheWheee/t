@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,7 +9,8 @@
 
   <!-- hi :D if youre reading wtf ts is its cos half of it was written when i was 12 and i just wanted to keep t-t-->
 
-  <script src="script.js"></script> <!-- thank you https://codepen.io/massiebn/pen/OJMbXz!!! :D-->
+  <script src="https://tsimur.neocities.org/script.js"></script>
+  <!-- thank you https://codepen.io/massiebn/pen/OJMbXz!!! :D-->
 
 
   <style>
@@ -38,6 +40,11 @@
     }
 
 
+    #BY {
+      position: fixed;
+      top: 50px;
+      right: 20px;
+    }
 
 
     #navbar {
@@ -107,10 +114,21 @@
     /* main text bg color  */
     main {
       background-color: #414142;
+      /*same scribbe image with opacity changed for readability idfk */
       flex: 1;
       padding: 20px;
       order: 2;
     }
+
+    #leftsidebar {
+      order: 1;
+    }
+
+    #rightsidebar {
+      order: 3;
+
+    }
+
 
 
     footer {
@@ -148,6 +166,9 @@
         order: 2;
       }
 
+      #rightsidebar {
+        order: 3;
+      }
 
       #navbar ul {
         flex-wrap: wrap;
@@ -222,7 +243,6 @@
 
 
 
-
 <body>
 
   <div id="hi">
@@ -231,16 +251,24 @@
       <div id="headerarea">
         <nav id="navbar" style="margin-bottom: 10px">
           <ul>
-            <li><a href="index.html">home</a></li>
+            <li><a href="home.html">home</a></li>
             <li><a href="about.html">about</a></li>
-            <li><a href="fake guns.lol.html">links</a></li>
+            <li><a href="index.html">links</a></li>
           </ul>
         </nav>
       </div>
     </div>
   </div>
 
-  <H3>about:</H3>
+  <h3>tsimur:</h3>
+
+
+
+  <div id="BY">
+    <a href="https://tsimur.neocities.org/BY/about">belarusian ver</a>
+  </div>
+
+
 
   <div id="flex">
     <aside id="leftsidebar" style="margin-right: 10px;">
@@ -262,7 +290,7 @@
           more graphically intense.
           <br><br>ive collected quite a lot of tech parts and items from the trash over the last few years, <br> eg: i
           managed to scavenge an old pc left out with a corroded motherboard with all the rest parts left intact, i
-          havent found a use for them yet, but a free sata 512 ssd, 16 gb corsair ramstick and processer dosent hurt :)
+          havent found a use for them yet, but a free sata 512 ssd, 16 gb corsair ramstick and processer dosent hurt :D
           <br>for a smartphone, i use a samsung s22 which i inherited from my father a couple years ago when he switched
           to iphone<br>
           It overheats like crazy and ive already had to change the battery once T-T (still a major improvment from a
@@ -271,7 +299,8 @@
           they were both working with the only downside of them being with a french keyboard- one is currently running
           cachyos and the other (significantly weaker) one is running the xfce version of linux mint. <br> <br>
           <img src="https://tsimur.neocities.org/0assets/trashcan%20laptop%20french%20cachy.jpg" width="200"
-            height="150"> <br><br>
+            height="150"> <br>
+          <h5>frenchkeyboard laptop found from trashcan running cachyos</h5>
           <img src="https://tsimur.neocities.org/0assets/two.jpg" width="220" height="150">
     </aside>
 
@@ -292,7 +321,7 @@
 
       <h2>stuff i like:</h2>
       <h3>music:</h3>
-      <p> i like listening to artists such as lungskull, tsuki no haikyo, luci4//axx, *67 and other similar artists(my
+      <p> i like artists such as lungskull, tsuki no haikyo, luci4//axx, *67 and other similar artists(my
         home page has a pretty big list of songs you can listen to)- i listen to most on soundcloud or youtube, and i
         download most of the songs as audio files for offline listen and collection-
       <h3>games:</h3>
@@ -310,24 +339,31 @@
         dont seem to have this issue. My favorite manga is Death Note, but i dont own the full physical copy of it- just
         a random part i bought from my local library as it was damaged
         my favorite manga i own physically is "cats of the louvre" by Taiyo Matsumoto, which is a short book i bought
-        for my birthday when i was in Malta a couple years back.</p>
+        for my birthday when i was in Malta a couple years back. </p>
+      <img src="https://tsimur.neocities.org/0assets/booksegpu.jpg" width="200" height="250">
+      <img src="https://tsimur.neocities.org/0assets/windowsill%20bed.jpg" width="200" height="150">
+      <h6>my room is quite small so i have to fit them all beside my bed onto the windowsills and onto my egpu D:
+      </h6>
       <h3>movies and shows:</h3>
       <p>my favourite genre of movies is probably comedy, and i generally enjoy watching french comedies the most. My
-        favorite actor is Louis De Funes, an old 1960s/70s comedian- my favorite movie with him is "Jo", which is about
+        favorite actor is Louis De Funes, an old 1960s/70s comedian- my favorite movie with him is "Jo", which is
+        about
         a playwright(played by Funes) which had planned a murder of his blackmailer- only to realise that the
-        blackmailer is already dead elsewhere and the person he had killed is a person unknown to him <br>
-        i also like doc martin, friday night dinner, the cases of poirot(played by David Suchet), Mr Robot and the
-        collection of studio ghilbi movies. Similarly to my music, i keep most of the stuff i watch downloaded to my
+        blackmailer is already dead elsewhere and the person he had killed is a person unknown to him, forcing him
+        into
+        jumping around places on where to hide the body <br>
+        i also like doc martin, friday night dinner, the cases of poirot(played by David Suchet), Mr Robot and also
+        despicable me 2- i couldnt tell you why i like it so much, even though the first movie is a lot better
+        storywise
+        i still prefer the second
+        . Similarly to my music, i keep most of the stuff i like downloaded to my
         laptop or hard drives and hoard them for really no apparent reason other than to watch them offline (which
-        rarley happens) but i do :) </p>
+        rarely happens T-T) </p>
+  </div>
 
   </div>
-  </aside>
 
-  </div>
   </main>
-
-  </div>
 
   <footer>
     <hr>
@@ -336,6 +372,7 @@
     <img src="https://tsimur.neocities.org/neocities.png" width="88" height="31" alt="hosted on neocities">
     <img src="https://tsimur.neocities.org/0assets/ns-best.gif" width="88" height="31" alt=netscape>
   </footer>
+
 
 </body>
 
